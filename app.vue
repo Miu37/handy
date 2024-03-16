@@ -11,5 +11,5 @@
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/v.scss";
+@import "@/assets/scss/variables.scss";
 </style>

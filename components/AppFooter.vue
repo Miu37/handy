@@ -10,5 +10,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.li{
+    color:$purple
+}
 </style>
