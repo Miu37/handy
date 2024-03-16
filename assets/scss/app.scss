@@ -1,0 +1,39 @@
+@import "bootstrap/scss/functions";
+@import './variables.scss';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import './test.scss';
+
+
+/* Bootstrap 按鈕顏色 ........................... */
+.btn-primary {
+  @include button-variant(
+    $primary,
+    $primary,
+    #fff,
+    darken($primary, 5%),
+    darken($primary, 5%),
+    #fff,
+    darken($primary, 5%),
+    darken($primary, 5%),
+    #fff,
+    $primary,
+    $primary,
+    #fff
+  );
+}
+.btn-secondary {
+  @include button-variant(
+    $secondary,
+    $secondary,
+    #fff,
+    darken($secondary, 5%),
+    darken($secondary, 5%),
+    #fff,
+    darken($secondary, 5%),
+    darken($secondary, 5%),
+    #fff,
+    $secondary,
+    $secondary,
+    #fff
+  );
+}
