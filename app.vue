@@ -1,8 +1,8 @@
 <template>
-  <div class="container-fluid">
+  <div>
     <AppHeader />
-    <NuxtPage />
-    <AppFooter />
+      <NuxtPage />
+      <AppFooter />
   </div>
 </template>
 
@@ -11,5 +11,5 @@
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/v.scss";
+@import "@/assets/scss/variables.scss"
 </style>

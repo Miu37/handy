@@ -1,7 +1,7 @@
 <template>
 <div>
 
-    <p class="li">sdddddasdas</p>
+ 
 </div>
 </template>
 
