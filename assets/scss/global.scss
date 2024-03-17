@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'JfOpen';
+    src: url('@/assets/fonts/jf-openhuninn-2.0.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+   }
+
+   body {
+    font-family: 'JfOpen', sans-serif;
+   }
+
+ul li{
+    list-style: none;
+}
+

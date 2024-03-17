@@ -1,3 +1,13 @@
+<script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function login() {
+  router.push('/usr');
+}
+</script>
+
 <template>
   <div class="all">
     <div class="login">
@@ -13,14 +23,12 @@
         </div>
       </div>
       <div class="loginBtn">
-        <button class="btn me-4">登入</button>
+        <button class="btn me-4" @click="login">登入</button>
         <button class="btn">註冊</button>
       </div>
     </div>
   </div>
 </template>
-
-<script setup></script>
 
 <style lang="scss" scoped>
 .all {
