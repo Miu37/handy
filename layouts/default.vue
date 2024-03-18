@@ -7,6 +7,7 @@
 
 <style lang="scss" scoped>
 .content {
+  width: 100%;
   background-color: antiquewhite;
 }
 </style>

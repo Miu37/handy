@@ -26,7 +26,8 @@
 <style lang="scss" scoped>
 .sidebar {
   background-color: #e7c08d52;
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   height: 100vh;
   p {
     font-family: 'JfOpen';
