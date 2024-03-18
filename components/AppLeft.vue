@@ -1,12 +1,16 @@
 <template>
   <div class="sidebar">
-    <div class="logo">
-      <NuxtImg src="/logo.png" />
-    </div>
-    <div class="mb-5">
-      <div class="photo">
-        <NuxtImg src="/miu.png" />
+    <nuxt-link to="/">
+      <div class="logo">
+        <NuxtImg src="/logo.png" />
       </div>
+    </nuxt-link>
+    <div class="mb-5">
+      <nuxt-link to="/usr">
+        <div class="photo">
+          <NuxtImg src="/miu.png" />
+        </div>
+      </nuxt-link>
       <p class="text-center">Hi, Miu</p>
     </div>
     <ul>
@@ -25,6 +29,7 @@
 
 <style lang="scss" scoped>
 .sidebar {
+  position: relative;
   background-color: #e7c08d52;
   width: 100%;
   max-width: 200px;
@@ -66,7 +71,9 @@
     }
   }
   .footer {
-    margin-top: 185%;
+    position: absolute;
+    bottom: 20px;
+    right: 85px;
     p {
       cursor: pointer;
       font-size: 1.1rem;
