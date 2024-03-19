@@ -74,7 +74,7 @@ function login() {
         }
         input[type='text']::placeholder,
         input[type='password']::placeholder {
-          font-size: 14px; /* 設置 placeholder 文字大小為 14px */
+          font-size: 14px; 
         }
       }
       p {

@@ -15,7 +15,13 @@
               </tr>
               <tr>
                 <th>密碼</th>
-                <td><input type="text" /></td>
+                <td>
+                  <nuxt-link to="/editPassword"
+                    ><button class="btn editPassword">
+                      修改密碼
+                    </button></nuxt-link
+                  >
+                </td>
               </tr>
               <tr>
                 <th>大頭貼</th>
@@ -27,7 +33,7 @@
                 </td>
               </tr>
               <tr>
-                <th>密碼</th>
+                <th>電子信箱</th>
                 <td><input type="text" /></td>
               </tr>
               <tr>
@@ -36,6 +42,12 @@
               </tr>
             </tbody>
           </table>
+          <div class="editSubmit">
+            <button class="btn me-4 submit" @click="login">確認修改</button>
+            <nuxt-link to="/usr"
+              ><button class="btn cancel">取消</button></nuxt-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -56,12 +68,13 @@
     margin: 0 auto;
     background-color: #fff8f1;
     .settingContent {
+      position: relative;
       width: 100%;
       table {
         width: 70%;
         margin: 0 auto;
         tr th {
-            line-height: 85px;
+          line-height: 85px;
           width: 20%;
           color: #bd5858;
           padding: 5px 7px;
@@ -70,20 +83,42 @@
           width: 455px;
           border-bottom: 2px dashed #ceb2b2;
           padding: 10px 5px;
-          input {
+          input[type='text'] {
             width: 100%;
+            border-radius: 5px;
+            border: 0px solid #ffdbd6;
+            padding: 5px;
+            background-color: #f0f0f0;
+          }
+          input[type='file'] {
+            width: 40%;
           }
         }
 
         .photo {
-          width: 10%;
+          width: 25%;
           height: 150px;
           overflow: hidden;
           border: 1px solid black;
+          margin-bottom: 10px;
           img {
             width: 100%;
             object-fit: contain;
           }
+        }
+        .editPassword {
+          background-color: #ffb0ad66;
+        }
+      }
+      .editSubmit {
+        position: absolute;
+        left: 42%;
+        top: 112%;
+        .submit {
+          background-color: #e4c69d;
+        }
+        .cancel {
+          background-color: #cacaca;
         }
       }
     }
