@@ -22,7 +22,7 @@ export default defineNuxtConfig({
       }
     }
   },
-
+  css:['@fortawesome/fontawesome-svg-core/styles.css'],
   modules: ["@nuxt/image"],
   image: {
     dir: 'assets/img'
