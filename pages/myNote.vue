@@ -1,6 +1,9 @@
 <template>
   <NuxtLayout>
     <div class="all">
+      <div class="wallpaper">
+        <p>我的筆記</p>
+      </div>
       <div class="card-wrapper">
         <div class="card">
           <div class="card-head">
@@ -141,9 +144,16 @@ body {
 .all {
   width: 70%;
   margin: 0 auto;
+  .wallpaper {
+    margin: 20px auto;
+    padding-left: 15px;
+    p {
+      font-family: 'JfOpen';
+      font-size: 1.5rem;
+    }
+  }
 }
 .card-wrapper {
-  padding-top: 70px;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;

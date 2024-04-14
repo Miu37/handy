@@ -64,7 +64,7 @@
   </NuxtLayout>
 </template>
 
-<script></script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .all {
