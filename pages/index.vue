@@ -6,6 +6,10 @@ const router = useRouter();
 function login() {
   router.push('/usr');
 }
+
+function register() {
+  router.push('/register');
+}
 </script>
 
 <template>
@@ -24,7 +28,7 @@ function login() {
       </div>
       <div class="loginBtn">
         <button class="btn me-4" @click="login">登入</button>
-        <button class="btn">註冊</button>
+        <button class="btn" @click="register">註冊</button>
       </div>
     </div>
   </div>
