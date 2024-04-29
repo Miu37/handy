@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
@@ -19,11 +21,40 @@ export default defineNuxtConfig({
           additionalData:'@import "@/assets/scss/app.scss";'
         }
       }
+    },
+    server:{
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          changeOrigin: true
+        }
+      }
     }
   },
   css:['@fortawesome/fontawesome-svg-core/styles.css'],
   modules: ["@nuxt/image"],
   image: {
     dir: 'assets/img'
-  }
+  },
+  // axios:{
+  //   proxy:true
+  // },
+  // proxy:{
+  //   proxies:{
+  //     '/api/':{
+  //       target:'http://127.0.0.1:8080/',
+  //       changeOrigin:true
+  //     }
+  //   }
+  // }
+
+//  nitro:{
+//   devProxy:{
+//     "/api":{
+//       target: 'http://localhost:8080/MemberService/v1',
+//       prependPath: true,
+//       changeOrigin:true,
+//     }
+//   }
+//  }
 })

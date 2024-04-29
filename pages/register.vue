@@ -1,6 +1,8 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import { register } from '@/server/api/api';
+// import { memberRegister } from '@/proxy/api'
+
+const router = useRouter();
 
 const reqData = reactive({
   account: 'test',
@@ -8,14 +10,20 @@ const reqData = reactive({
   password: '123',
   email: '',
   phone: '',
-  headshot: [],
+  headshot: null,
 });
-const router = useRouter();
+
 
 function confirm() {
-  register(reqData).then((res) => {
-    console.log('b',res)
-  });
+  // memberRegister(reqData).then((res) => {
+  //   console.log('b',res)
+  // });
+  useFetch('/posts', {
+    method: 'GET',
+    baseURL: 'https://jsonplaceholder.typicode.com'
+  }).then(res=>{
+    console.log(res)
+  })
 }
 
 function cancel() {
@@ -114,3 +122,4 @@ function cancel() {
   }
 }
 </style>
+~/proxy/api
