@@ -1,30 +1,10 @@
 <script setup>
 import { useRouter } from 'vue-router';
-// import { memberRegister } from '@/proxy/api'
+import { useUserStore } from '@/stores/user';
+
 
 const router = useRouter();
-
-const reqData = reactive({
-  account: 'test',
-  name: 'test',
-  password: '123',
-  email: '',
-  phone: '',
-  headshot: null,
-});
-
-
-function confirm() {
-  // memberRegister(reqData).then((res) => {
-  //   console.log('b',res)
-  // });
-  useFetch('/posts', {
-    method: 'GET',
-    baseURL: 'https://jsonplaceholder.typicode.com'
-  }).then(res=>{
-    console.log(res)
-  })
-}
+const userStore = useUserStore();
 
 function cancel() {
   router.push('/');
@@ -40,15 +20,15 @@ function cancel() {
       <div class="registerInfo">
         <div>
           <p>帳號</p>
-          <input type="text" placeholder="英文或數字" />
+          <input type="text" placeholder="英文或數字" v-model="userStore.registerData.account"/>
         </div>
         <div>
           <p>會員名稱</p>
-          <input type="text" placeholder="中文或英文或字母皆可" />
+          <input type="text" placeholder="中文或英文或字母皆可" v-model="userStore.registerData.name"/>
         </div>
         <div>
           <p>密碼</p>
-          <input type="password" placeholder="8位數英文大小寫+數字" />
+          <input type="password" placeholder="8位數英文大小寫+數字" v-model="userStore.registerData.password"/>
         </div>
         <div>
           <p>確認密碼</p>
@@ -57,7 +37,7 @@ function cancel() {
       </div>
       <div class="registerBtn">
         <button class="btn me-4" @click="cancel">取消</button>
-        <button class="btn" @click="confirm">確定</button>
+        <button class="btn" @click="userStore.memberRegister(router)">確定</button>
       </div>
     </div>
   </div>

@@ -1,17 +1,17 @@
 // api.js
 export async function memberRegister(reqData) {
-  const response = await fetch('https://jsonplaceholder.typicode.com', {
-     method: 'GET',
-     headers: {
-       'Content-Type': 'application/json'
-     },
-     body: JSON.stringify(reqData)
-  });
- 
-  if (!response.ok) {
-     throw new Error('Network response was not ok');
+  try {
+     const response = await fetch('http://127.0.0.1:8080/MemberService/api/v1/register', {
+       method: 'POST',
+       body: JSON.stringify(reqData),
+       headers: {
+         'Content-type': 'application/json; charset=UTF-8',
+       },
+     });
+     const data = await response.json();
+     return { data, error: null };
+  } catch (error) {
+     return { data: null, error };
   }
- 
-  return response.json();
  }
  
