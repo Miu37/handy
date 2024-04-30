@@ -32,29 +32,8 @@ export default defineNuxtConfig({
     }
   },
   css:['@fortawesome/fontawesome-svg-core/styles.css'],
-  modules: ["@nuxt/image"],
+  modules: ["@nuxt/image",'@pinia/nuxt'],
   image: {
     dir: 'assets/img'
   },
-  // axios:{
-  //   proxy:true
-  // },
-  // proxy:{
-  //   proxies:{
-  //     '/api/':{
-  //       target:'http://127.0.0.1:8080/',
-  //       changeOrigin:true
-  //     }
-  //   }
-  // }
-
-//  nitro:{
-//   devProxy:{
-//     "/api":{
-//       target: 'http://localhost:8080/MemberService/v1',
-//       prependPath: true,
-//       changeOrigin:true,
-//     }
-//   }
-//  }
 })
