@@ -1,3 +1,12 @@
+<script setup>
+import { useUserStore } from '@/stores/user';
+
+const userStore = useUserStore();
+onMounted(() => {
+  userStore.getUserData();
+});
+</script>
+
 <template>
   <NuxtLayout>
     <div class="all">
@@ -63,8 +72,6 @@
     </div>
   </NuxtLayout>
 </template>
-
-<script setup></script>
 
 <style lang="scss" scoped>
 .all {

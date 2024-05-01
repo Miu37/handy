@@ -1,11 +1,10 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/user';
+
 
 const router = useRouter();
-
-function login() {
-  router.push('/usr');
-}
+const userStore = useUserStore();
 
 function register() {
   router.push('/register');
@@ -20,14 +19,14 @@ function register() {
         <NuxtImg src="/loginPic.png" />
       </div>
       <div class="usrInfo">
-        <div><input type="text" placeholder="筆記本主人" /></div>
+        <div><input type="text" placeholder="筆記本主人" v-model="userStore.loginData.account"/></div>
         <div>
-          <input type="password" placeholder="密碼" />
+          <input type="password" placeholder="密碼" v-model="userStore.loginData.password"/>
           <p>忘記密碼</p>
         </div>
       </div>
       <div class="loginBtn">
-        <button class="btn me-4" @click="login">登入</button>
+        <button class="btn me-4" @click="userStore.login(router)">登入</button>
         <button class="btn" @click="register">註冊</button>
       </div>
     </div>

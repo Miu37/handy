@@ -28,11 +28,11 @@ function cancel() {
         </div>
         <div>
           <p>密碼</p>
-          <input type="password" placeholder="8位數英文大小寫+數字" v-model="userStore.registerData.password"/>
+          <input type="password" id="password" name="password" placeholder="8位數英文大小寫+數字" v-model="userStore.registerData.password"/>
         </div>
         <div>
           <p>確認密碼</p>
-          <input type="password" placeholder="再次輸入密碼" />
+          <input type="password" id="checkPassword" name="checkPassword" placeholder="再次輸入密碼" />
         </div>
       </div>
       <div class="registerBtn">
