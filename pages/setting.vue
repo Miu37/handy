@@ -1,3 +1,14 @@
+<script setup>
+import { useUserStore } from '@/stores/user';
+const userStore = useUserStore();
+
+onMounted(()=>{
+  const token = JSON.parse(window.sessionStorage.getItem("token"));
+  userStore.getUserData(token);
+})
+
+</script>
+
 <template>
   <NuxtLayout>
     <div class="all">
@@ -11,7 +22,7 @@
               </tr>
               <tr>
                 <th>帳號</th>
-                <td>miu37</td>
+                <td>{{ userStore.usrData.account }}</td>
               </tr>
               <tr>
                 <th>密碼</th>
@@ -34,11 +45,11 @@
               </tr>
               <tr>
                 <th>電子信箱</th>
-                <td><input type="text" /></td>
+                <td><input type="text" />{{userStore.usrData.email}}</td>
               </tr>
               <tr>
                 <th>聯絡方式</th>
-                <td><input type="text" /></td>
+                <td><input type="text" />{{userStore.usrData.phone}}</td>
               </tr>
             </tbody>
           </table>
@@ -54,7 +65,6 @@
   </NuxtLayout>
 </template>
 
-<script></script>
 
 <style lang="scss" scoped>
 .all {

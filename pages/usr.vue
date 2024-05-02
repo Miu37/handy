@@ -1,10 +1,13 @@
 <script setup>
 import { useUserStore } from '@/stores/user';
-
 const userStore = useUserStore();
-onMounted(() => {
-  userStore.getUserData();
-});
+
+onMounted(()=>{
+  const token = JSON.parse(window.sessionStorage.getItem("token"));
+  userStore.getUserData(token);
+})
+
+
 </script>
 
 <template>
@@ -21,19 +24,19 @@ onMounted(() => {
             </li>
             <li>
               <label for="">會員名稱： </label>
-              <p>謬謬</p>
+              <p>{{ userStore.usrData.name }}</p>
             </li>
             <li>
               <label for="">帳號： </label>
-              <p>Miu37</p>
+              <p>{{ userStore.usrData.account }}</p>
             </li>
             <li>
               <label for="">Email： </label>
-              <p>miumiu@gmail.com</p>
+              <p>{{userStore.usrData.email}}</p>
             </li>
             <li>
               <label for="">手機： </label>
-              <p>09552784988</p>
+              <p>{{userStore.usrData.phone}}</p>
             </li>
           </ul>
         </div>

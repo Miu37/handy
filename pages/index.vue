@@ -1,14 +1,40 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import { useUserStore } from '@/stores/user';
-
 
 const router = useRouter();
-const userStore = useUserStore();
+const loginData= reactive({
+      account: '',
+      password: '',
+})
+const token = ref('')
 
 function register() {
   router.push('/register');
 }
+
+async function login() {
+      const response = await fetch(
+        'http://127.0.0.1:8080/MemberService/api/v1/login',
+        {
+          method: 'POST',
+          body: JSON.stringify(loginData),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      );
+      const data = await response.json();
+      if (data.status == 0) {
+       token.value = data.token
+       console.log('登入',token)
+       window.sessionStorage.setItem("token", JSON.stringify(token.value))
+        router.push({
+          path: '/usr',
+        });
+      } else {
+        alert(data.message);
+      }
+    }
 </script>
 
 <template>
@@ -19,14 +45,14 @@ function register() {
         <NuxtImg src="/loginPic.png" />
       </div>
       <div class="usrInfo">
-        <div><input type="text" placeholder="筆記本主人" v-model="userStore.loginData.account"/></div>
+        <div><input type="text" placeholder="筆記本主人" v-model="loginData.account"/></div>
         <div>
-          <input type="password" placeholder="密碼" v-model="userStore.loginData.password"/>
+          <input type="password" placeholder="密碼" v-model="loginData.password"/>
           <p>忘記密碼</p>
         </div>
       </div>
       <div class="loginBtn">
-        <button class="btn me-4" @click="userStore.login(router)">登入</button>
+        <button class="btn me-4" @click="login()">登入</button>
         <button class="btn" @click="register">註冊</button>
       </div>
     </div>

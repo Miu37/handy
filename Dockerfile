@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 3000
 
 # 啟動 Nuxt.js 應用程式
-CMD ["npm", "start"]
+CMD ["npm", "run dev"]
