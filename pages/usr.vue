@@ -3,8 +3,7 @@ import { useUserStore } from '@/stores/user';
 const userStore = useUserStore();
 
 onMounted(()=>{
-  const token = JSON.parse(window.sessionStorage.getItem("token"));
-  userStore.getUserData(token);
+  userStore.getUserData();
 })
 
 

@@ -1,3 +1,15 @@
+<script setup>
+ function uploadFile(event) {
+  console.log(event)
+  const reader = new FileReader();
+    reader.onload = function(){
+      const output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
+
 <template>
   <NuxtLayout>
     <div class="main">
@@ -39,17 +51,7 @@
   </NuxtLayout>
 </template>
 
-<script setup>
- function uploadFile(event) {
-  console.log(event)
-  const reader = new FileReader();
-    reader.onload = function(){
-      const output = document.getElementById('output');
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
-</script>
+
 <style lang="scss" scoped>
 *,
 *::before,

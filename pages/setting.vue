@@ -1,11 +1,22 @@
 <script setup>
-import { useUserStore } from '@/stores/user';
+
 const userStore = useUserStore();
 
 onMounted(()=>{
-  const token = JSON.parse(window.sessionStorage.getItem("token"));
-  userStore.getUserData(token);
+  userStore.getUserData();
 })
+
+
+// 上傳圖片預覽
+function uploadFile(event) {
+  console.log(event)
+  const reader = new FileReader();
+    reader.onload = function(){
+      const output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
 
 </script>
 
@@ -18,7 +29,7 @@ onMounted(()=>{
             <tbody>
               <tr>
                 <th>會員名稱</th>
-                <td><input type="text" /></td>
+                <td><input type="text" v-model="userStore.usrData.name"/></td>
               </tr>
               <tr>
                 <th>帳號</th>
@@ -38,23 +49,23 @@ onMounted(()=>{
                 <th>大頭貼</th>
                 <td>
                   <div class="photo">
-                    <NuxtImg src="/miu.png" />
+                    <img id="output"/>
                   </div>
-                  <input type="file" />
+                  <input type="file" class="uploadImg" accept="image/*" @change="uploadFile($event)"/>
                 </td>
               </tr>
               <tr>
                 <th>電子信箱</th>
-                <td><input type="text" />{{userStore.usrData.email}}</td>
+                <td><input type="text" v-model="userStore.usrData.email"/></td>
               </tr>
               <tr>
                 <th>聯絡方式</th>
-                <td><input type="text" />{{userStore.usrData.phone}}</td>
+                <td><input type="text" v-model="userStore.usrData.phone"/></td>
               </tr>
             </tbody>
           </table>
           <div class="editSubmit">
-            <button class="btn me-4 submit" @click="login">確認修改</button>
+            <button class="btn me-4 submit" @click="userStore.editUserData()">確認修改</button>
             <nuxt-link to="/usr"
               ><button class="btn cancel">取消</button></nuxt-link
             >
@@ -135,3 +146,4 @@ onMounted(()=>{
   }
 }
 </style>
+~/composable/user
