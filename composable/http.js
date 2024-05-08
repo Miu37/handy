@@ -1,17 +1,17 @@
-// const handleError = function (response) {
-//   const err = function (text) {
-//     Message.error({
-//       content: response?._data?.message ?? text,
-//       icon: function () {
-//         return;
-//       },
-//     });
-//   };
-//   if (!response._data) {
-//     err('請求超時！');
-//     return;
-//   }
-// };
+const handleError = function (response) {
+  const err = function (text) {
+    Message.error({
+      content: response?._data?.message ?? text,
+      icon: function () {
+        return;
+      },
+    });
+  };
+  if (!response._data) {
+    err('請求超時！');
+    return;
+  }
+};
 
 const fetch = $fetch.create({
   // 請求攔截器
@@ -25,11 +25,11 @@ const fetch = $fetch.create({
   onResponse({ response }) {
     // if (response.headers.get('content-disposition') && response.status === 200)
     //   return response;
-    // 判斷錯誤
-    //   if (response._data.code !== 200) {
-    //     handleError(response)
-    //     return Promise.reject(response._data)
-    //   }
+
+      // if (response._data.code !== 200) {
+      //   alert(response._data.message)
+      //   // return Promise.reject(response._data)
+      // }
     // 成功返回
     return response._data;
   },

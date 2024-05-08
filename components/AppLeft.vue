@@ -1,3 +1,15 @@
+<script setup>
+const userName = ref('');
+onMounted(() => {
+  const userInfo = JSON.parse(window.sessionStorage.getItem('userInfo'));
+  console.log('userInfo',userInfo)
+  userName.value = userInfo.name;
+});
+
+
+
+</script>
+
 <template>
   <div class="sidebar">
     <nuxt-link to="/">
@@ -11,7 +23,7 @@
           <NuxtImg src="/miu.png" />
         </div>
       </nuxt-link>
-      <p class="text-center">Hi, Miu</p>
+      <p class="text-center">Hi, {{ userName }}</p>
     </div>
     <ul>
       <nuxt-link to="/addPage"><li>新增頁面</li></nuxt-link>
@@ -24,8 +36,6 @@
     </div>
   </div>
 </template>
-
-<script setup></script>
 
 <style lang="scss" scoped>
 .sidebar {
